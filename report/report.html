@@ -1,0 +1,26 @@
+<a class="btn btn-primary" href="#/dashboard">Home</a>
+<div class="text-center">
+	<h4>Your daily average is {{average}} calories.</h4>
+</div>
+<table class="table table-striped table-bordered table-hover">
+<thead>
+<tr>
+	<th>Date</th>
+	<th>Food</th>
+	<th>Exercise</th>
+	<th>Total</th>
+	<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="food in report | orderBy:'+date'">
+	<td>{{food.date}}</td>
+	<td>{{food.food}}</td>
+	<td>{{food.exercise}}</td>
+	<td>{{food.total}}
+	<td>
+		<a class="btn btn-default" ng-href="#/view/{{food.date}}">View</a>
+	</td>
+</tr>
+</tbody> 
+</table>

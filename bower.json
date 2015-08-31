@@ -1,0 +1,17 @@
+{
+  "name": "fit-stack",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "latest",
+    "angular-loader": "latest",
+    "angular-route": "latest",
+    "angularfly": "latest",
+    "bootstrap": "latest",
+    "flybase": "~1.4.1",
+    "moment": "~2.10.6"
+  },
+  "resolutions": {
+    "flybase": "~1.4.1",
+    "angular": "1.4.5"
+  }
+}

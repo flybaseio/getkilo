@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Kilo is a calorie tracker built for speed, simplicity, and freedom.</title>
+	<meta name="description" content="Kilo is a calorie tracker built for speed, simplicity, and freedom.">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base ng-href="/">
+	
+	<!-- CSS -->
+	<link ng-href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<link ng-href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" ng-href="css/app.css"> <!-- custom styles -->
+
+	<!-- JS -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="components/forge.min.js"></script>
+</head>
+<body ng-cloak style="box-shadow--6dp">
+	<div class="container">
+		<!-- HEADER -->
+<!--
+		<div class="pull-right">
+			<ul class="list-unstyled list-inline">
+				<li ng-hide-auth>
+					<div style="margin:8px;"><a class="btn btn-success" ng-href="#/login">Login</a></div>
+				</li>
+				<li ng-show-auth><div style="margin:8px;"><a class="btn btn-danger" ng-href="#/logout">Logout</a></div></li>
+			</ul>
+		</div>
+-->
+<!--
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a ng-href="#/dashboard">Home</a></li>
+					<li ng-show-auth><a ng-href="#/food">My Food</a></li>
+					<li ng-show-auth><a ng-href="#/exercise">My Exercises</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li ng-hide-auth>
+						<div style="margin:8px;"><a class="btn btn-success" ng-href="#/login">Login</a></div>
+					</li>
+					<li ng-show-auth><a ng-href="#/account">Settings</a></li>
+					<li ng-show-auth><a ng-href="#/account/edit">My Profile</a></li>
+					<li ng-show-auth><div style="margin:8px;"><a class="btn btn-danger" ng-href="#/logout">Logout</a></div></li>
+				</ul>
+			</div>
+		</nav>
+-->
+		<!--[if lt IE 7]>
+		<p class="browsehappy">
+		You are using an <strong>outdated</strong> browser. Please <a ng-href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+		</p>
+		<![endif]-->	
+		<div ng-view></div>
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">Fit Stack v<span app-version></span></p>
+		</div>
+	</footer>
+	<div id="credit">
+		<a href="http://momentumdash.com/" target="_blank">Like this photo?</a>
+	</div>
+	<!-- JS -->
+	<script src="bower_components/moment/min/moment.min.js"></script>
+	<script src="bower_components/flybase/flybase.js"></script>
+	<script src="bower_components/angularfly/angularfly.js"></script>
+		
+	<!-- ANGULAR STUFF -->
+	<script src="config.js"></script>
+<!-- SERVICES -->
+	<script src="components/directives.js"></script>
+	<script src="components/models.js"></script>
+	<script src="components/loginMcFly.js"></script>
+<!-- CONTROLLERS -->
+	<script src="home/home.js"></script>
+	<script src="account/account.js"></script>
+	<script src="food/food.js"></script>
+	<script src="exercise/exercise.js"></script>
+	<script src="report/report.js"></script>
+	<script src="app.js"></script>
+	<script>
+		(function(d,w){
+			if ((('ontouchstart' in w) || w.DocumentTouch && d instanceof DocumentTouch)) {
+				d.documentElement.className += ' touch';
+			} else {
+				d.documentElement.className += ' no-touch';
+			}
+		})(document, window);
+	</script>
+</body>
+</html>

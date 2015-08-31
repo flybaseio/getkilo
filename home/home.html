@@ -1,0 +1,52 @@
+<div class=" text-center">
+	<ul class="list-unstyled list-inline">
+		<li>
+			<a class="btn btn-default" ng-href="#/view/{{daybefore}}">« Prev Date</a>
+		</li>
+		<li>
+			<h5>{{todayshort}}</h5>
+		</li>
+		<li>
+			<a class="btn btn-default" ng-href="#/view/{{dayafter}}">Next Date »</a>
+		</li>
+	</ul>
+</div>
+<div class="text-center">
+	<h1 class="calories">{{cLeft}}</h1>
+	<p class="clabel">calories left</p>
+</div>
+<div class="well text-center">
+	<a class="btn btn-default" ng-href="#/food/new">New food</a>
+	<a class="btn btn-default" ng-href="#/exercise/new">New exercise</a>
+	<a class="btn btn-default" ng-href="#/more">More Options</a>
+</div>
+<div ng-hide="activity.length > 0">
+	<p>Looks like you haven't made any entries yet for <strong>{{todayverbose}}</strong>. Let's change that!</p>
+	
+	<p>You can add a food by pressing the New Food button, add an exercise by pressing the New Exercise button, or switch to a different date with the Next/Prev buttons.</p>
+</div>
+<div ng-show="activity.length > 0">
+	<table class="table table-striped table-bordered table-hover">
+	<thead>
+	<tr>
+		<th>Type</th>
+		<th>Name</th>
+		<th>Calories</th>
+		<th>Time</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="food in activity | orderBy:'+time'">
+		<td>{{food.type}}</td>
+		<td>
+			{{food.name}}
+		</td>
+		<td>{{food.calories}}
+		<td>
+			{{food.time}}
+		</td>
+	</tr>
+	</tbody> 
+	</table>
+	<hr />
+</div>
