@@ -5,7 +5,7 @@ angular.module('myApp.config', [])
 .constant('version', '1.0.1')
 .constant('loginRedirectPath', '/login')
 .constant('FLYBASE_CONFIG',{
-	API_KEY:'ad6f572d-8324-4467-a409-ead6daa490d9', 
+	API_KEY:'YOUR-API-KEY', 
 	DB_NAME:'kilo'
 })
 // double check that the app has been configured before running it and blowing up space and time
