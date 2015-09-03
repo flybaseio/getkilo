@@ -44,7 +44,7 @@ angular.module('FoodCtrl', ['ngRoute', 'flybaseResourceHttp', 'loginMcFly'])
 		$scope.food.date = moment( $scope.food.date ).format("YYYY-MM-DD"); 
 
 		$scope.food.$saveOrUpdate().then(function(returnData){
-			$location.path('/food');
+			$location.path('/view/' + $scope.food.date );
 		}, function(error) {
 			throw new Error('Sth went wrong...');
 		});

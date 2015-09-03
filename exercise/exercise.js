@@ -44,7 +44,7 @@ angular.module('ExerciseCtrl', ['ngRoute', 'flybaseResourceHttp', 'loginMcFly'])
 		$scope.exercise.date = moment( $scope.exercise.date ).format("YYYY-MM-DD"); 
 
 		$scope.exercise.$saveOrUpdate().then(function(returnData){
-			$location.path('/exercise');
+			$location.path('/view/' + $scope.food.date );
 		}, function(error) {
 			throw new Error('Sth went wrong...');
 		});

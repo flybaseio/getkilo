@@ -1,6 +1,10 @@
 angular.module('MainCtrl', ['ngRoute'])
 .controller('MainController', function($scope,$timeout,$location,foods,exercises,Food,Exercise,login,me) {
 	$scope.currentUser = me;
+	$scope.calories = 2000;
+	if( typeof me.calories !== "undefined" ){
+		$scope.calories = me.calories;
+	}
 	
 	$scope.today = moment().format("YYYY-MM-DD"); 
 
@@ -44,7 +48,7 @@ angular.module('MainCtrl', ['ngRoute'])
 			date:exercise.date
 		});
 	}
-	$scope.cLeft = (2000 - $scope.cUsed) + $scope.cBurned;
+	$scope.cLeft = ($scope.calories - $scope.cUsed) + $scope.cBurned;
 	$scope.tagline = 'To the moon and back!';	
 
 	var Ref = Food.flybase();
@@ -52,6 +56,10 @@ angular.module('MainCtrl', ['ngRoute'])
 })
 .controller('ViewController', function($scope,$timeout,$location,$route,foods,exercises,Food,Exercise,login,me) {
 	$scope.currentUser = me;
+	$scope.calories = 2000;
+	if( typeof me.calories !== "undefined" ){
+		$scope.calories = me.calories;
+	}
 
 	$scope.today = $route.current.params.date;	
 
@@ -96,7 +104,7 @@ angular.module('MainCtrl', ['ngRoute'])
 		});
 	}
 
-	$scope.cLeft = (2000 - $scope.cUsed) + $scope.cBurned;
+	$scope.cLeft = ($scope.calories - $scope.cUsed) + $scope.cBurned;
 
 	$scope.tagline = 'To the moon and back!';	
 

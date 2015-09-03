@@ -1,7 +1,28 @@
+<a class="btn btn-primary" href="#/dashboard">Home</a>
+<h3>
+		Hello, <em>{{user.email}}</em>
+</h3>
+<div class="alert alert-success" role="alert" ng-show="notifyme">
+	<p>{{notifyme}}</p>
+</div>
+<form name="form">
+	<div class="form-group">
+		<label>Your email</label>
+		<input type="text" ng-model="user.email" class="form-control">
+	</div>
+	<div class="form-group">
+		<label>Daily Calories</label>
+		<input type="number" ng-model="user.calories" class="form-control" value="2000" >
+	</div>
+	<div class="well">
+		<a class="btn btn-primary" ng-click="save()" ng-disabled="!hasChanges()||form.$invalid">Save</a>
+	</div>
+</form>
+<!--
 <div ng-show="showform">
 	<h2>Account</h2>
 	<div class="well">
-		Hello, <em>{{profile.email}}</em>
+		Hello, <em>{{user.email}}</em>
 	</div>
 	<br /><br />
 	<hr />
@@ -10,17 +31,19 @@
 		<a class="btn btn-primary" ng-href="#/account/edit">My Profile</a>
 		<a class="btn btn-warning" ng-click="logout()">Log Out</a>
 	</div>
+</div>
+-->
 <!--
 	<form>
 		<fieldset>
 			<legend>Profile</legend>
 			<label>
 				<span>Name:</span>
-				<input type="text" name="name" ng-model="profile.name"/>
+				<input type="text" name="name" ng-model="user.name"/>
 			</label>
 			<label>
 				<span>Email:</span>
-				<br />{{profile.email}}
+				<br />{{user.email}}
 			</label>
 		</fieldset>
 	</form>
@@ -62,4 +85,3 @@
 		</fieldset>
 	</form>
 -->
-</div>
