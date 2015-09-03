@@ -7,6 +7,11 @@ angular.module('ReportCtrl', ['ngRoute'])
 //		$location.path('/login');
 	}
 	$scope.token = login._getToken();
+
+	$scope.calories = 2000;
+	if( typeof me.calories !== "undefined" ){
+		$scope.calories = me.calories;
+	}
 	
 	$scope.foods = foods;
 	$scope.exercises = exercises;
@@ -69,7 +74,7 @@ angular.module('ReportCtrl', ['ngRoute'])
 	}
 	$scope.average = $scope.average / $scope.avgc;
 	
-	$scope.cLeft = (2000 - $scope.cUsed) + $scope.cBurned;
+	$scope.cLeft = ($scope.calories - $scope.cUsed) + $scope.cBurned;
 	$scope.tagline = 'To the moon and back!';	
 
 	var Ref = Food.flybase();

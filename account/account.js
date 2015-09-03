@@ -2,22 +2,33 @@ angular.module('UserCtrl', ['ngRoute', 'flybaseResourceHttp', 'loginMcFly'])
 /* Controllers */
 .controller('AccountCtrl', function($scope, $location, login, me) {
 	$scope.showform = false;
-	$scope.profile = {}; 
-	
+	$scope.user = {}; 
+	$scope.notifyme = "";
 	if( !login.isLoggedIn() ){
 		$scope.showform = false;
 		$location.path('/login');
 	}
 	var token = login._getToken();
-	$scope.profile = me;
-/*
-	login.getUser( token ).then( function( user ) {
-		$scope.profile = user;
-	}, function(err) {
-		$scope.err = err;
-	});
-*/
+	$scope.user = me;
+
+	if( typeof $scope.user.calories === "undefined" ){
+		$scope.user.calories = 2000;
+	}
 	$scope.showform = true;
+
+	$scope.userCopy = angular.copy( $scope.user );
+
+	$scope.save = function(){
+		$scope.user.$saveOrUpdate().then(function(returnData){
+			$location.path('/account');
+		}, function(error) {
+			throw new Error('Sth went wrong...');
+		});
+	};
+
+	$scope.hasChanges = function(){
+		return !angular.equals($scope.user, $scope.userCopy);
+	};
 
 	$scope.logout = function() {
 		login.logout();
